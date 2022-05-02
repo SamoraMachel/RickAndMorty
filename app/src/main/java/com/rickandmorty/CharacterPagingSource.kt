@@ -19,7 +19,7 @@ class CharacterPagingSource(val apiService : RetroService) : PagingSource<Int, C
             val response = apiService.getDataFromAPI(nextPage)
             var nextPageNumber : Int? = null
 
-            if(response?.info?.next != null) {
+            if(response.info.next != null) {
                 val uri = Uri.parse(response.info.next)
                 val nextPageQuery = uri.getQueryParameter("page")
                 nextPageNumber = nextPageQuery?.toInt()
